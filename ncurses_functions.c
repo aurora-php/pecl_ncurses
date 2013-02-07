@@ -1781,6 +1781,46 @@ PHP_FUNCTION(ncurses_wscrl)
 }
 /* }}} */
 
+/* {{{ proto int ncurses_wsetscrreg(resource window, int top, int bot)
+   Set region for scrolling */
+PHP_FUNCTION(ncurses_wsetscrreg)
+{
+	zval *handle;
+	long top, bot;
+	WINDOW **w;
+	
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rll", &handle, &top, &bot) == FAILURE) {
+		return;
+	}
+
+	IS_NCURSES_INITIALIZED();	
+
+	FETCH_WINRES(w, &handle);
+
+	RETURN_LONG(wsetscrreg(*w, top, bot));
+}
+/* }}} */
+
+/* {{{ proto int ncurses_scrollok(resource window, bool bf)
+   Enable or disable scrolling of window content */
+PHP_FUNCTION(ncurses_scrollok)
+{
+	zval *handle;
+	zend_bool bf;
+	WINDOW **w;
+	
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rb", &handle, &bf) == FAILURE) {
+		return;
+	}
+
+	IS_NCURSES_INITIALIZED();	
+
+	FETCH_WINRES(w, &handle);
+
+	RETURN_LONG(scrollok(*w, bf));
+}
+/* }}} */
+
 /* {{{ proto string ncurses_termname(void)
    Returns terminal name */
 PHP_FUNCTION(ncurses_termname)

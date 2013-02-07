@@ -1761,6 +1761,26 @@ PHP_FUNCTION(ncurses_wrefresh)
 }
 /* }}} */
 
+/* {{{ proto int ncurses_wscrl(resource window, int count)
+   Scrolls window content up or down without changing current position */
+PHP_FUNCTION(ncurses_wscrl)
+{
+	zval *handle;
+	long intarg;
+	WINDOW **w;
+	
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rl", &handle, &intarg) == FAILURE) {
+		return;
+	}
+
+	IS_NCURSES_INITIALIZED();	
+
+	FETCH_WINRES(w, &handle);
+
+	RETURN_LONG(wscrl(*w, intarg));
+}
+/* }}} */
+
 /* {{{ proto string ncurses_termname(void)
    Returns terminal name */
 PHP_FUNCTION(ncurses_termname)

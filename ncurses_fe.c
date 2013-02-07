@@ -205,6 +205,8 @@ zend_function_entry ncurses_functions[] = {
 	PHP_FE(ncurses_waddstr,		NULL)
 	PHP_FE(ncurses_wnoutrefresh,	NULL)
 	PHP_FE(ncurses_wclear,		NULL)
+	PHP_FE(ncurses_wscrl,			NULL)
+
 #ifdef HAVE_NCURSES_COLOR_SET
 	PHP_FE(ncurses_wcolor_set,	NULL)
 #endif

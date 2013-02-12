@@ -92,6 +92,7 @@ zend_function_entry ncurses_functions[] = {
 	PHP_FE(ncurses_cbreak,			NULL)
 	PHP_FE(ncurses_clear,			NULL)
 	PHP_FE(ncurses_clrtobot,		NULL)
+	PHP_FE(ncurses_wclrtobot,		NULL)
 	PHP_FE(ncurses_clrtoeol,		NULL)
 	PHP_FE(ncurses_wclrtoeol,		NULL)
 	PHP_FE(ncurses_def_prog_mode,		NULL)

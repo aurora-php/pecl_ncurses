@@ -42,6 +42,7 @@ PHP_FUNCTION(ncurses_can_change_color);
 PHP_FUNCTION(ncurses_cbreak);
 PHP_FUNCTION(ncurses_clear);
 PHP_FUNCTION(ncurses_clrtobot);
+PHP_FUNCTION(ncurses_wclrtobot);
 PHP_FUNCTION(ncurses_clrtoeol);
 PHP_FUNCTION(ncurses_wclrtoeol);
 PHP_FUNCTION(ncurses_def_prog_mode);

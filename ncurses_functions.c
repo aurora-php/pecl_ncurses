@@ -405,6 +405,23 @@ PHP_FUNCTION(ncurses_clrtobot)
 }
 /* }}} */
 
+/* {{{ proto bool ncurses_wclrtobot(void)
+   Clears screen from current position to bottom in a window */
+PHP_FUNCTION(ncurses_wclrtobot)
+{
+	zval *handle;
+	WINDOW **win;
+
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "r", &handle) == FAILURE) {
+	        return;
+	}
+
+	FETCH_WINRES(win, &handle);
+
+	RETURN_LONG(wclrtobot(*win));
+}
+/* }}} */
+
 /* {{{ proto bool ncurses_clrtoeol(void)
    Clears screen from current position to end of line */
 PHP_FUNCTION(ncurses_clrtoeol)
